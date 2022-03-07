@@ -3,7 +3,9 @@ import express from "express";
 const   app     =   express()
 import router from './routes.js'
 
-app.locals.app_url = "http://localhost:4001"
+// app.locals.app_url = "http://localhost:4001"
+app.locals.app_url = "https://sps-oman.herokuapp.com"
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use("/public", express.static("public"))
