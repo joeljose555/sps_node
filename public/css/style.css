@@ -3455,6 +3455,8 @@ img{
 .main-footer .logo-widget .logo{
 	position:relative;
 	margin-bottom:25px;
+	height: 25%;
+    width: 50%;
 }
 
 .main-footer .logo-widget .widget-content .text{

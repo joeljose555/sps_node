@@ -13,59 +13,22 @@
     <link href="public/css/responsive.css" rel="stylesheet">
     <!--<link href="css/color.css" rel="stylesheet">-->
 
-    <link rel="shortcut icon" href="https://www.fortune-oilfield.com/public/images/favicon.png" type="image/x-icon">
-    <link rel="icon" href="https://www.fortune-oilfield.com/public/images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="public/images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="public/images/favicon.png" type="image/x-icon">
     <!-- Responsive -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <script src="public/js/html5shiv.js"></script>
     <script src="public/js/respond.js"></script>
     <link href="public/css/toastr.css" rel="stylesheet">
-
+    <script src="public/js/jquery.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
 </head>
 
 
 <body>
 <div class="page-wrapper">
 <header class="main-header header-style-three">
-
-    <!--Header Upper Two-->
-    <!-- <div class="header-upper-two">
-        <div class="auto-container clearfix">
-            <div class="header-upper-left pull-left">
-
-                
-                <div class="upper-column info-box">
-                    <ul>
-                        <li>Need Help? Talk to an Expert <span>(9714) 259 3456</span></li>
-                    </ul>
-                </div>
-
-                
-                <div class="upper-column info-box">
-                    <ul>
-                        <li>Send Message Us at <span>sales@fortune-oilfield.com</span></li>
-                    </ul>
-                </div>
-
-                
-                <div class="upper-column info-box">
-                    <img src="https://www.fortune-oilfield.com/public/images/ISO-logo.png" / style=" vertical-align:
-                    initial;">
-                </div>
-
-            </div>
-            <div class="header-upper-right pull-right">
-
-                <ul class="social-icon-one">
-                    <li><a href="#"><span class="fa fa-facebook"></span></a></li>
-                    <li><a href="#"><span class="fa fa-twitter"></span></a></li>
-                    <li><a href="#"><span class="fa fa-linkedin"></span></a></li>
-                </ul>
-
-            </div>
-        </div>
-    </div> -->
 
     <!-- Header Lower Two -->
     <div class="header-lower-two">
@@ -96,11 +59,11 @@
 
                         <div class="navbar-collapse collapse clearfix">
                             <ul class="navigation clearfix">
-                                <li class="current"><a href="/">Home</a></li>
-                                <li><a href="<%= app_url %>/about-us">About us</a></li>
-                                <li><a href="<%= app_url %>/products">Products</a></li>
-                                <li><a href="<%= app_url %>/services">Services</a></li>
-                                <li><a href="<%= app_url %>/contact-us">Contact</a></li>
+                                <li class="current" id="home"><a href="/">Home</a></li>
+                                <li id="aboutUS"><a href="<%= app_url %>/about-us">About us</a></li>
+                                <li id="products"><a href="<%= app_url %>/products">Products</a></li>
+                                <li id="services"><a href="<%= app_url %>/services">Services</a></li>
+                                <li id="contact"><a href="<%= app_url %>/contact-us">Contact</a></li>
                             </ul>
                         </div>
                     </nav>
@@ -147,11 +110,11 @@
 
                         <div class="navbar-collapse collapse clearfix">
                             <ul class="navigation clearfix">
-                                <li class="current"><a href="<%= app_url %>/">Home</a></li>
-                                <li><a href="<% app_url %>/about-us">About us</a></li>
-                                <li><a href="<% app_url %>/products">Products</a></li>
-                                <li><a href="<% app_url %>/services">Services</a></li>
-                                <li><a href="<% app_url %>/contact-us">Contact</a></li>
+                                <li class="current" id="home"><a href="/">Home</a></li>
+                                <li id="aboutUS"><a href="<%= app_url %>/about-us">About us</a></li>
+                                <li id="products"><a href="<%= app_url %>/products">Products</a></li>
+                                <li id="services"><a href="<%= app_url %>/services">Services</a></li>
+                                <li id="contact"><a href="<%= app_url %>/contact-us">Contact</a></li>
                             </ul>
                         </div>
                     </nav>
@@ -167,4 +130,22 @@
     <!--End Sticky Header-->
 
 </header>
-<!--End Main Header --
+<!--End Main Header -->
+<script>
+    console.log(window.location.href)
+    let baseUrl = window.location.href
+    let url = baseUrl.split('/')[3]
+    if(url == "about-us"){
+        $('.current').removeClass('current');
+        $("#aboutUS").addClass('current');
+    } else if (url == 'products'){
+        $('.current').removeClass('current');
+        $("#products").addClass('current');
+    } else if (url == "services") {
+        $('.current').removeClass('current');
+        $("#services").addClass('current');
+    } else if ( url == "contact-us"){
+        $('.current').removeClass('current');
+        $("#contact").addClass('current');  
+    }
+</script>
