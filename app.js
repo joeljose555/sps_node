@@ -2,10 +2,11 @@ import 'dotenv/config'
 import express from "express";
 const   app     =   express()
 import router from './routes.js'
+import morgan from 'morgan'
 
-// app.locals.app_url = "http://localhost:4001"
-app.locals.app_url = "https://sps-oman.herokuapp.com" 
+app.locals.app_url = process.env.BASE_URL
 
+app.use(morgan('tiny'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use("/public", express.static("public"))
